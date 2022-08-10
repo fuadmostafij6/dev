@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web/colors_const.dart';
 import 'package:flutter_web/pages/NavBar.dart';
+import 'package:flutter_web/pages/profile_card.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'ScrollBihaviour/scroll.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +17,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      scrollBehavior: AppScrollBehavior(),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        textTheme: GoogleFonts.poppinsTextTheme() ,
+
         // This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the
@@ -43,11 +51,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: ColorConst.lightBgColor,
       body: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: const [
-          Spacer(),
-          NavBar()
+          Expanded(
+              flex: 2,
+              child: ProfileCard()),
+          Expanded(
+              flex: 7,
+              child: NavBar()),
         ],
       ),
     );
