@@ -89,7 +89,7 @@ About(),
       });
     },
     child: Container(
-      constraints: BoxConstraints(minWidth: 122),
+      constraints: const BoxConstraints(minWidth: 122),
       height: 100,
       child: Stack(
         alignment: Alignment.center,
@@ -105,7 +105,7 @@ About(),
             right: 0,
             bottom:
             selectedIndex != index && hoverIndex == index ? -20 : -32,
-            child: Image.network("https://raw.githubusercontent.com/abuanwar072/Protfolio-Website-Flutter-Web/master/assets/images/Hover.png"),
+            child: Image.asset("images/Hover.png"),
           ),
           // Select
           AnimatedPositioned(
@@ -113,7 +113,7 @@ About(),
             left: 0,
             right: 0,
             bottom: selectedIndex == index ? -20 : -32,
-            child: Image.network("https://raw.githubusercontent.com/abuanwar072/Protfolio-Website-Flutter-Web/master/assets/images/Hover.png"),
+            child: Image.asset("images/Hover.png"),
           ),
         ],
       ),
