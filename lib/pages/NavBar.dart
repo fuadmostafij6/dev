@@ -96,7 +96,7 @@ About(),
         children: [
           Text(
             menuItems[index],
-            style: TextStyle(color:  selectedIndex == index || hoverIndex == index ?Colors.redAccent: Colors.black,),
+            style: TextStyle(color:  selectedIndex == index || hoverIndex == index ?ColorConst.secondaryColor: Colors.black,),
           ),
           // Hover
           AnimatedPositioned(

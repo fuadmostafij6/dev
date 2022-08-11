@@ -6,12 +6,12 @@ AspectRatio myInfo(BuildContext context) {
   return AspectRatio(aspectRatio: 1.23,
 
     child: Container(
-      color: ColorConst.lightWidgetColor ,
+      color: ColorConst.lightBgColor ,
       child: Column(
         children:  [
           const Spacer(flex: 2),
           CircleAvatar(
-            backgroundColor: ColorConst.lightWidgetColor ,
+            backgroundColor: ColorConst.lightBgColor ,
             radius: 60,
             child:  ClipOval(
               child: Image.network(

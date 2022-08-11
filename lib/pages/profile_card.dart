@@ -1,8 +1,12 @@
 
 
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
+import '../Widget/Timeline.dart';
 import '../Widget/myinfo.dart';
 import '../colors_const.dart';
 
@@ -17,7 +21,7 @@ class _ProfileCardState extends State<ProfileCard> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      backgroundColor: ColorConst.lightBgColor,
+      backgroundColor: ColorConst.lightWidgetColor,
       body: Center(
         child: Row(
           children: [
@@ -28,8 +32,12 @@ class _ProfileCardState extends State<ProfileCard> {
                   child: Column(
 
                     children: [
+                      SizedBox(height: 20.0,),
                       myInfo(context),
-                      
+                      SizedBox(height: 20.0,),
+                      TimelineWidget(),
+
+
                     ],
                   ),
 
@@ -40,6 +48,8 @@ class _ProfileCardState extends State<ProfileCard> {
 
     );
   }
+
+
 
 
 }
