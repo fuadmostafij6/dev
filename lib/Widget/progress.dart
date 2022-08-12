@@ -17,7 +17,7 @@ class AnimatedLinearProgressIndicator extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 20),
       child: TweenAnimationBuilder(
         tween: Tween<double>(begin: 0, end: percentage),
-        duration: Duration(seconds: 1),
+        duration: const Duration(seconds: 1),
         builder: (context, double value, child) => Column(
           children: [
             Row(
@@ -25,15 +25,15 @@ class AnimatedLinearProgressIndicator extends StatelessWidget {
               children: [
                 Text(
                   label,
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.black),
                 ),
-                Text((value * 100).toInt().toString() + "%"),
+                Text("${(value * 100).toInt()}%"),
               ],
             ),
-            SizedBox(height: 20 / 2),
+            const SizedBox(height: 20 / 2),
             LinearProgressIndicator(
               value: value,
-              color: Colors.redAccent,
+              color: ColorConst.secondaryColor,
               backgroundColor: ColorConst.lightWidgetColor,
             ),
           ],

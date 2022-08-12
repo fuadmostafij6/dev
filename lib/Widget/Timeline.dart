@@ -1,3 +1,4 @@
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -188,41 +189,59 @@ class _TimelinePainter extends CustomPainter {
 
 
 
-AspectRatio TimelineWidget() {
+AspectRatio timelineWidget() {
   return AspectRatio(
     aspectRatio: 1.23,
 
-    child: Container(
-      color: ColorConst.lightBgColor ,
-      child: Center(
-        child: Timeline(
-          indicators: const <Widget>[
+    child:
+    Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        color: ColorConst.lightBgColor ,
+        child: Center(
+          child: Column(
+            children: [
+              const Spacer(
 
-            FaIcon(FontAwesomeIcons.house),
-            FaIcon(FontAwesomeIcons.github),
-            FaIcon(FontAwesomeIcons.envelope),
+              ),
+              const Text("Stay Connected"),
+              const Spacer(
+
+              ),
+              Timeline(
+                indicators: const <Widget>[
+
+                  FaIcon(FontAwesomeIcons.house),
+                  FaIcon(FontAwesomeIcons.github),
+                  FaIcon(FontAwesomeIcons.envelope),
 
 
-          ],
-          children:  <Widget>[
-            Text("Bangladesh", style:   TextStyle(color: ColorConst.secondaryColor),),
-            RichText(text:TextSpan(
-              text: 'fuadmostafij6',
-              style:  TextStyle(color: ColorConst.secondaryColor),
-              recognizer: TapGestureRecognizer()
-                ..onTap = () { launch('https://github.com/fuadmostafij6');
-                },
-            ), ),
+                ],
+                children:  <Widget>[
+                  Text("Bangladesh", style:   TextStyle(color: ColorConst.secondaryColor),),
+                  RichText(text:TextSpan(
+                    text: 'fuadmostafij6',
+                    style:  TextStyle(color: ColorConst.secondaryColor),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () { launch('https://github.com/fuadmostafij6');
+                      },
+                  ), ),
 
-            RichText(text:TextSpan(
-              text: 'fuadmostafij6@gmail.com',
-              style:  TextStyle(color: ColorConst.secondaryColor),
-              recognizer: TapGestureRecognizer()
-                ..onTap = () { launch('mailto:fuadmostafij6@gmail.com');
-                },
-            ), ),
+                  RichText(text:TextSpan(
+                    text: 'fuadmostafij6@gmail.com',
+                    style:  TextStyle(color: ColorConst.secondaryColor),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () { launch('mailto:fuadmostafij6@gmail.com');
+                      },
+                  ), ),
 
-          ],
+                ],
+              ),
+              const Spacer(
+
+              ),
+            ],
+          )
         ),
       ),
     ),

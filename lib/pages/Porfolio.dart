@@ -10,8 +10,6 @@ class Portfolio extends StatefulWidget {
 class _PortfolioState extends State<Portfolio> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text("Portfolio"),
-    );
+    return Text("Portfolio");
   }
 }

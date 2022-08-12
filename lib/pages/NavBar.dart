@@ -61,6 +61,7 @@ class _NavBarState extends State<NavBar> {
             onPageChanged: (pageIndex) {
               setState(() {
                 selectedIndex = pageIndex;
+                hoverIndex = pageIndex;
               });
             },
             controller: _pageController,
@@ -80,6 +81,7 @@ About(),
     onTap: () {
       setState(() {
         selectedIndex = index;
+
         _pageController.jumpToPage(selectedIndex);
       });
     },
