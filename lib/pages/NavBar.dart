@@ -50,7 +50,6 @@ class _NavBarState extends State<NavBar> {
           Padding(
             padding: const EdgeInsets.all(18.0),
             child: PageView(
-              scrollDirection: Axis.vertical,
               onPageChanged: (pageIndex) {
                 setState(() {
                   selectedIndex = pageIndex;
