@@ -10,6 +10,6 @@ class Portfolio extends StatefulWidget {
 class _PortfolioState extends State<Portfolio> {
   @override
   Widget build(BuildContext context) {
-    return Text("Portfolio");
+    return const Text("Portfolio");
   }
 }

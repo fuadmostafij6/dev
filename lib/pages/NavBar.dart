@@ -18,24 +18,19 @@ class _NavBarState extends State<NavBar> {
   int selectedIndex = 0;
   int hoverIndex = 0;
   final PageController _pageController = PageController();
-  List<String> menuItems = [
-    "About",
-    "Services",
-    "Portfolio",
-    "Contact"
-  ];
+  List<String> menuItems = ["About", "Services", "Portfolio", "Contact"];
   void _onTappedBar(int value) {
     setState(() {
       selectedIndex = value;
     });
+
     _pageController.jumpToPage(value);
   }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return
-
-      Column(
+    return Column(
       //mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
@@ -44,33 +39,27 @@ class _NavBarState extends State<NavBar> {
           color: ColorConst.lightWidgetColor,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children:  List.generate(
+            children: List.generate(
               menuItems.length,
-                  (index) => buildMenuItem(index),
+              (index) => buildMenuItem(index),
             ),
-
-
-
-
-                ),
+          ),
         ),
-
-
         Expanded(
-          child: PageView(
-            onPageChanged: (pageIndex) {
-              setState(() {
-                selectedIndex = pageIndex;
-                hoverIndex = pageIndex;
-              });
-            },
-            controller: _pageController,
-            children: [
-About(),
-              Services(),
-              Portfolio(),
-              Contact()
-            ],
+          child:
+          Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: PageView(
+              scrollDirection: Axis.vertical,
+              onPageChanged: (pageIndex) {
+                setState(() {
+                  selectedIndex = pageIndex;
+                  hoverIndex = pageIndex;
+                });
+              },
+              controller: _pageController,
+              children: const [About(), Services(), Portfolio(), Contact()],
+            ),
           ),
         )
       ],
@@ -78,47 +67,51 @@ About(),
   }
 
   Widget buildMenuItem(int index) => InkWell(
-    onTap: () {
-      setState(() {
-        selectedIndex = index;
-
-        _pageController.jumpToPage(selectedIndex);
-      });
-    },
-    onHover: (value) {
-      setState(() {
-        value ? hoverIndex = index : hoverIndex = selectedIndex;
-      });
-    },
-    child: Container(
-      constraints: const BoxConstraints(minWidth: 122),
-      height: 100,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Text(
-            menuItems[index],
-            style: TextStyle(color:  selectedIndex == index || hoverIndex == index ?ColorConst.secondaryColor: Colors.black,),
+        onTap: () {
+          setState(() {
+            selectedIndex = index;
+            //_pageController.animateTo(2.0, duration: const Duration(seconds: 5), curve: Curves.ease);
+            _pageController.animateToPage(selectedIndex,duration: const Duration(seconds: 5), curve: Curves.ease);
+          });
+        },
+        onHover: (value) {
+          setState(() {
+            value ? hoverIndex = index : hoverIndex = selectedIndex;
+          });
+        },
+        child: Container(
+          constraints: const BoxConstraints(minWidth: 122),
+          height: 100,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Text(
+                menuItems[index],
+                style: TextStyle(
+                  color: selectedIndex == index || hoverIndex == index
+                      ? ColorConst.secondaryColor
+                      : Colors.black,
+                ),
+              ),
+              // Hover
+              AnimatedPositioned(
+                duration: const Duration(milliseconds: 200),
+                left: 0,
+                right: 0,
+                bottom:
+                    selectedIndex != index && hoverIndex == index ? -20 : -32,
+                child: Image.asset("images/Hover.png"),
+              ),
+              // Select
+              AnimatedPositioned(
+                duration: const Duration(milliseconds: 200),
+                left: 0,
+                right: 0,
+                bottom: selectedIndex == index ? -20 : -32,
+                child: Image.asset("images/Hover.png"),
+              ),
+            ],
           ),
-          // Hover
-          AnimatedPositioned(
-            duration: const Duration(milliseconds: 200),
-            left: 0,
-            right: 0,
-            bottom:
-            selectedIndex != index && hoverIndex == index ? -20 : -32,
-            child: Image.asset("images/Hover.png"),
-          ),
-          // Select
-          AnimatedPositioned(
-            duration: const Duration(milliseconds: 200),
-            left: 0,
-            right: 0,
-            bottom: selectedIndex == index ? -20 : -32,
-            child: Image.asset("images/Hover.png"),
-          ),
-        ],
-      ),
-    ),
-  );
+        ),
+      );
 }
