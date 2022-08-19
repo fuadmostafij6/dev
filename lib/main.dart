@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web/Widget/responsive.dart';
 import 'package:flutter_web/colors_const.dart';
 import 'package:flutter_web/pages/NavBar.dart';
 import 'package:flutter_web/pages/profile_card.dart';
@@ -50,20 +51,22 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorConst.lightBgColor,
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          Expanded(
-              flex: 2,
-              child: ProfileCard()),
-          Expanded(
-              flex: 7,
-              child: NavBar()),
-        ],
-      ),
-    );
+    return
+      ResponsiveLayout(mobileBody: Container(), desktopBody: Scaffold(
+        backgroundColor: ColorConst.lightBgColor,
+        body: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            Expanded(
+                flex: 2,
+                child: ProfileCard()),
+            Expanded(
+                flex: 7,
+                child: NavBar()),
+          ],
+        ),
+      ))
+      ;
   }
 }

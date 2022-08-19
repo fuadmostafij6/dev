@@ -21,19 +21,21 @@ class _AboutState extends State<About> {
   }
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return  SingleChildScrollView(
       child:
       Column(
         children: [
           Container(
             color: ColorConst.lightWidgetColor,
-            height: 350,
-            width: MediaQuery.of(context).size.width-20,
+            height: size.height*0.55,
+            width: size.width-20,
+
             child: ModelViewer(
-              poster: 'assets/images/flutter_dash.mtl',
+             // poster: 'assets/images/flutter_dash.mtl',
               posterColor: Colors.blue,
-              src: 'assets/images/flutter.glb',
-              alt: "A 3D model of an astronaut",
+              src: 'https://raw.githubusercontent.com/fuadmostafij6/dev/main/assets/images/flutter.glb',
+              alt: "Flutter 3D",
               ar: true,
               autoRotate: true,
               cameraControls: true,
@@ -41,6 +43,7 @@ class _AboutState extends State<About> {
           ),
           Container(
             color: ColorConst.lightWidgetColor,
+            height: size.height*0.31,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
