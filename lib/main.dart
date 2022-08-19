@@ -59,6 +59,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return
       ResponsiveLayout(mobileBody: Scaffold(
+        extendBody: true,
+        extendBodyBehindAppBar: true,
         key: _scaffoldKey,
         drawer: Drawer(
           elevation: 0,
