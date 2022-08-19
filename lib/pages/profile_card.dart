@@ -25,6 +25,8 @@ class _ProfileCardState extends State<ProfileCard> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      extendBody: true,
+      extendBodyBehindAppBar: true,
 
       backgroundColor: ColorConst.lightWidgetColor,
       body: Center(
