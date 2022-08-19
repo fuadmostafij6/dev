@@ -1,5 +1,6 @@
 
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web/Model/servicesModel.dart';
@@ -15,22 +16,23 @@ class _ServicesState extends State<Services> {
   List <GlobalKey<FlipCardState>> cardKey = [GlobalKey<FlipCardState>()];
   List<ServicesModel> servicesList = [
 
-    ServicesModel("Tv Application (Android/iOs)", "assets/images/tv.png", ""),
-    ServicesModel("Mobile Application (Android/iOs)", "assets/images/mobile.png", ""),
-    ServicesModel("Web App", "assets/images/web.png", ""),
-    ServicesModel("AR App", "assets/images/mobile.png", "shortDesc"),
+    ServicesModel("Build Tv Application", "assets/images/tv.png", ["Android", "iOs"]),
+    ServicesModel("Build Mobile Application", "assets/images/mobile.png", ["Android", "iOs"]),
+    ServicesModel("Build Web App", "assets/images/web.png", ["web"]),
+    ServicesModel("AR App", "assets/images/mobile.png", ["Android", "iOs"]),
 
   ];
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return  Center(
       child: GridView.builder(  physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemCount: servicesList.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
-            crossAxisSpacing: 35.0,
-            mainAxisSpacing: 25.0,
+            crossAxisSpacing: 10.0,
+            mainAxisSpacing: 10.0,
 
           ), itemBuilder: (context, index){
         var data = servicesList[index];
@@ -57,10 +59,38 @@ class _ServicesState extends State<Services> {
               direction: FlipDirection.HORIZONTAL, // default
               front:   Card(
                 elevation: 0,
-                child: Image.asset(data.images!, fit: BoxFit.contain,),
+                child: Column(
+                  children: [
+                    Image.asset(data.images!, fit: BoxFit.contain,height:size.height*0.3 ,),
+                    Text(data.title!),
+                  ],
+                )
               ),
 
-                back: Text(data.title!),
+                back: Card(
+                  elevation: 0,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+
+                      Expanded(
+                        child: AnimatedTextKit(
+                          repeatForever: true,
+                          animatedTexts: data.platform!.map((e){
+                            return FadeAnimatedText(
+                              e,
+                              textStyle: const TextStyle(fontSize: 60.0,),
+                            );
+
+                          }
+
+                          ).toList(),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
             ),
           );
 

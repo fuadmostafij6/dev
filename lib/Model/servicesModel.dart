@@ -7,10 +7,10 @@ import 'package:flutter_web/pages/Services.dart';
 class ServicesModel{
   final String? title;
   final String? images;
-  final String? shortDesc;
+  final List<String>? platform;
 
 
-  ServicesModel(this.title, this.images, this.shortDesc, );
+  ServicesModel(this.title, this.images, this.platform, );
 
 
 

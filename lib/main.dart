@@ -5,7 +5,12 @@ import 'package:flutter_web/pages/NavBar.dart';
 import 'package:flutter_web/pages/profile_card.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'MobilePages/aboutMobile.dart';
 import 'ScrollBihaviour/scroll.dart';
+import 'Widget/Coding.dart';
+import 'Widget/Skill.dart';
+import 'Widget/Timeline.dart';
+import 'Widget/myinfo.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,10 +54,44 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return
-      ResponsiveLayout(mobileBody: Container(), desktopBody: Scaffold(
+      ResponsiveLayout(mobileBody: Scaffold(
+        key: _scaffoldKey,
+        drawer: Drawer(
+          elevation: 0,
+          child: ListView(
+            shrinkWrap: true,
+            primary: false,
+
+
+            children: [
+              const SizedBox(height: 20.0,),
+              myInfo(context),
+              timelineWidget(),
+              skillBuilder(),
+              codingBuilder()
+
+
+
+
+
+            ],
+          ),
+
+        ),
+
+        appBar: AppBar(
+
+          leading:  IconButton(onPressed: ()=>_scaffoldKey.currentState!.openDrawer(), icon: Icon(Icons.person, color: ColorConst.secondaryColor,),),
+          shadowColor: Colors.transparent,
+          backgroundColor: Colors.transparent,
+        ),
+
+        body:  const AboutMobile(),
+      ), desktopBody: Scaffold(
         backgroundColor: ColorConst.lightBgColor,
         body: Row(
           mainAxisAlignment: MainAxisAlignment.start,

@@ -65,52 +65,55 @@ class _NavBarState extends State<NavBar> {
     );
   }
 
-  Widget buildMenuItem(int index) => InkWell(
-        onTap: () {
-          setState(() {
-            selectedIndex = index;
-            //_pageController.animateTo(2.0, duration: const Duration(seconds: 5), curve: Curves.ease);
-            _pageController.animateToPage(selectedIndex,duration: const Duration(seconds: 5), curve: Curves.ease);
-          });
-        },
-        onHover: (value) {
-          setState(() {
-            value ? hoverIndex = index : hoverIndex = selectedIndex;
-          });
-        },
-        child: Container(
-          constraints: const BoxConstraints(minWidth: 122),
-          height: 100,
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Text(
-                menuItems[index],
-                style: TextStyle(
-                  color: selectedIndex == index || hoverIndex == index
-                      ? ColorConst.secondaryColor
-                      : Colors.black,
+  Widget buildMenuItem(int index) => Material(
+    color: Colors.transparent,
+    child: InkWell(
+          onTap: () {
+            setState(() {
+              selectedIndex = index;
+              //_pageController.animateTo(2.0, duration: const Duration(seconds: 5), curve: Curves.ease);
+              _pageController.animateToPage(selectedIndex,duration: const Duration(seconds: 5), curve: Curves.ease);
+            });
+          },
+          onHover: (value) {
+            setState(() {
+              value ? hoverIndex = index : hoverIndex = selectedIndex;
+            });
+          },
+          child: Container(
+            constraints: const BoxConstraints(minWidth: 122),
+            height: 100,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Text(
+                  menuItems[index],
+                  style: TextStyle(
+                    color: selectedIndex == index || hoverIndex == index
+                        ? ColorConst.secondaryColor
+                        : Colors.black,
+                  ),
                 ),
-              ),
-              // Hover
-              AnimatedPositioned(
-                duration: const Duration(milliseconds: 200),
-                left: 0,
-                right: 0,
-                bottom:
-                    selectedIndex != index && hoverIndex == index ? -20 : -32,
-                child: Image.asset("images/Hover.png"),
-              ),
-              // Select
-              AnimatedPositioned(
-                duration: const Duration(milliseconds: 200),
-                left: 0,
-                right: 0,
-                bottom: selectedIndex == index ? -20 : -32,
-                child: Image.asset("images/Hover.png"),
-              ),
-            ],
+                // Hover
+                AnimatedPositioned(
+                  duration: const Duration(milliseconds: 200),
+                  left: 0,
+                  right: 0,
+                  bottom:
+                      selectedIndex != index && hoverIndex == index ? -20 : -32,
+                  child: Image.asset("images/Hover.png"),
+                ),
+                // Select
+                AnimatedPositioned(
+                  duration: const Duration(milliseconds: 200),
+                  left: 0,
+                  right: 0,
+                  bottom: selectedIndex == index ? -20 : -32,
+                  child: Image.asset("images/Hover.png"),
+                ),
+              ],
+            ),
           ),
         ),
-      );
+  );
 }
