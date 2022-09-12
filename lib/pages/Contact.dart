@@ -11,8 +11,6 @@ class Contact extends StatefulWidget {
 class _ContactState extends State<Contact> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text("Contact"),
-    );
+    return const Text("Contact");
   }
 }
