@@ -18,7 +18,7 @@ class _ContactState extends State<Contact> {
       phoneNumber: '+88001798172012',
       dividerThickness: 2,
       website: 'https://abhishekdoshi.godaddysites.com',
-      githubUserName: 'fuadmostafij',
+      githubUserName: 'fuadmostafij6',
       //linkedinURL: 'https://www.linkedin.com/in/abhishek-doshi-520983199/',
       tagLine: 'Flutter Developer',
       //instagram: 'fuadmostafij6',
