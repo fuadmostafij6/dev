@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       scrollBehavior: AppScrollBehavior(),
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'MRF',
       theme: ThemeData(
         textTheme: GoogleFonts.poppinsTextTheme() ,
 
