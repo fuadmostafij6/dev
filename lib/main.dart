@@ -4,6 +4,7 @@ import 'package:flutter_web/colors_const.dart';
 import 'package:flutter_web/pages/NavBar.dart';
 import 'package:flutter_web/pages/profile_card.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 import 'MobilePages/aboutMobile.dart';
 import 'ScrollBihaviour/scroll.dart';
@@ -13,6 +14,7 @@ import 'Widget/Timeline.dart';
 import 'Widget/myinfo.dart';
 
 void main() {
+  setPathUrlStrategy();
   runApp(const MyApp());
 }
 
