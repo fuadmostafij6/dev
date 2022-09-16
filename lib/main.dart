@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(height: 20.0,),
               myInfo(context),
               timelineWidget(),
-              skillBuilder(),
+              skillBuilder(context),
               codingBuilder()
 
 

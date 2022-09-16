@@ -4,15 +4,15 @@ import 'package:flutter_web/Widget/progress.dart';
 
 import '../colors_const.dart';
 
-Widget skillBuilder() {
-  return AspectRatio(aspectRatio: 1.23,
-    child: Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        color: ColorConst.lightBgColor,
-        child: ListView(
-          primary: false,
-          shrinkWrap: true,
+Widget skillBuilder( BuildContext context) {
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Container(
+      color: ColorConst.lightBgColor,
+     // height: MediaQuery.of(context).size.height*0.7,
+      child: Expanded(
+        child: Column(
+
           children: const [
             SizedBox(height: 20,),
             Center(child: Text("Skill")),
@@ -28,5 +28,6 @@ Widget skillBuilder() {
           ],
         ),
       ),
-    ),);
+    ),
+  );
 }
