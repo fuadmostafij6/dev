@@ -44,7 +44,7 @@ class _ProfileCardState extends State<ProfileCard> {
                       const SizedBox(height: 20.0,),
                       myInfo(context),
                       timelineWidget(),
-                      skillBuilder(context),
+                      skillBuilder(),
                       codingBuilder()
 
 
