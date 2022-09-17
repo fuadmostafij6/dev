@@ -65,7 +65,7 @@ class _AboutState extends State<About> {
                                 },
                             ),
                             const TextSpan(
-                                text: "07/2022 - Present"
+                                text: "01/2022 - Present"
                             ),
 
 
