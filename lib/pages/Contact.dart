@@ -16,10 +16,10 @@ class _ContactState extends State<Contact> {
       email: 'fuadmostafij6@gmail.com',
 
       phoneNumber: '+88001798172012',
-      dividerThickness: 2,
-      website: 'https://abhishekdoshi.godaddysites.com',
+      dividerThickness: 0,
+      //website: 'https://abhishekdoshi.godaddysites.com',
       githubUserName: 'fuadmostafij6',
-      //linkedinURL: 'https://www.linkedin.com/in/abhishek-doshi-520983199/',
+      linkedinURL: 'https://www.linkedin.com/in/md-mostafijur-rahman-3a2737229/',
       tagLine: 'Flutter Developer',
       //instagram: 'fuadmostafij6',
       textColor: Colors.redAccent, taglineColor: Colors.redAccent, cardColor: Colors.white60, companyColor: Colors.redAccent, companyName: '',
