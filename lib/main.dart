@@ -60,7 +60,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return
-      ResponsiveLayout(mobileBody: Scaffold(
+      ResponsiveLayout(mobileBody:
+
+      Scaffold(
         extendBody: true,
         extendBodyBehindAppBar: true,
         key: _scaffoldKey,
@@ -94,7 +96,13 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.transparent,
         ),
 
-        body:  const AboutMobile(),
+        body:  ListView(
+          shrinkWrap: true,
+          primary: false,
+          children: [
+             AboutMobile()
+          ],
+        ),
       ), desktopBody: Scaffold(
         backgroundColor: ColorConst.lightBgColor,
         body: Row(
