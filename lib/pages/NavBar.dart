@@ -6,6 +6,7 @@ import 'package:flutter_web/pages/Services.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 import '../colors_const.dart';
+import '../constPath.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({Key? key}) : super(key: key);
@@ -34,11 +35,11 @@ class _NavBarState extends State<NavBar> {
       //mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
-          width: size.width * 0.75,
+          width: size.width > tabWidth?size.width * 0.75:size.width * 0.62,
           height: 50,
           color: ColorConst.lightWidgetColor,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment:size.width > tabWidth? MainAxisAlignment.spaceEvenly: MainAxisAlignment.spaceAround,
             children: List.generate(
               menuItems.length,
               (index) => buildMenuItem(index),

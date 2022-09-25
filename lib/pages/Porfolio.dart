@@ -76,7 +76,7 @@ class _PortfolioState extends State<Portfolio> {
                     children: [
                       FadeInImage.memoryNetwork(placeholder: kTransparentImage, image: data.thumbNail!, height: 100,),
                       Text(data.title!),
-                      Text(data.shortDetails!)
+                      Expanded(child: Text(data.shortDetails!))
                     ],
                   ),
                 ),

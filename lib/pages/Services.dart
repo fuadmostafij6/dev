@@ -4,6 +4,8 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web/Model/servicesModel.dart';
 
+import '../constPath.dart';
+
 class Services extends StatefulWidget {
   const Services({Key? key}) : super(key: key);
 
@@ -28,10 +30,10 @@ class _ServicesState extends State<Services> {
       child: GridView.builder(  physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemCount: servicesList.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            crossAxisSpacing: 10.0,
-            mainAxisSpacing: 5.0,
+          gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount:size.width > tabWidth? 3:2,
+            crossAxisSpacing:size.width > 1040? 10.0:5,
+            mainAxisSpacing:size.width > 1040? 5.0:2 ,
 
           ), itemBuilder: (context, index){
         var data = servicesList[index];

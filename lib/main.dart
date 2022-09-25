@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web/Widget/responsive.dart';
 import 'package:flutter_web/colors_const.dart';
+import 'package:flutter_web/constPath.dart';
 import 'package:flutter_web/pages/NavBar.dart';
 import 'package:flutter_web/pages/profile_card.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -59,6 +60,7 @@ class _HomePageState extends State<HomePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return
       ResponsiveLayout(mobileBody:
 
@@ -100,20 +102,20 @@ class _HomePageState extends State<HomePage> {
           shrinkWrap: true,
           primary: false,
           children: [
-             AboutMobile()
+             AboutMobile(),
           ],
         ),
       ), desktopBody: Scaffold(
         backgroundColor: ColorConst.lightBgColor,
-        body: Row(
+        body:  Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children:  [
             Expanded(
-                flex: 2,
+                flex: size.width > tabWidth?  2:3,
                 child: ProfileCard()),
             Expanded(
-                flex: 7,
+                flex:size.width > tabWidth?  7: 6,
                 child: NavBar()),
           ],
         ),

@@ -2,4 +2,5 @@
 
 String assetPath = "assets/images/";
 
-int mobileWidth = 986;
+int mobileWidth = 788;
+int tabWidth = 986;
