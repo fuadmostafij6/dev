@@ -19,7 +19,7 @@ class _ContactState extends State<Contact> {
       dividerThickness: 0,
       //website: 'https://abhishekdoshi.godaddysites.com',
       githubUserName: 'fuadmostafij6',
-      linkedinURL: 'https://www.linkedin.com/in/md-mostafijur-rahman-3a2737229/',
+      linkedinURL: 'https://www.linkedin.com/in/fuadmostafij6/',
       tagLine: 'Flutter Developer',
       //instagram: 'fuadmostafij6',
       textColor: Colors.redAccent, taglineColor: Colors.redAccent, cardColor: Colors.white60, companyColor: Colors.redAccent, companyName: '',
