@@ -62,7 +62,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return
-      ResponsiveLayout(mobileBody:
+      ResponsiveLayout(
+
+          mobileBody:
 
       Scaffold(
         extendBody: true,
@@ -105,7 +107,9 @@ class _HomePageState extends State<HomePage> {
              AboutMobile(),
           ],
         ),
-      ), desktopBody: Scaffold(
+      ),
+
+          desktopBody: Scaffold(
         backgroundColor: ColorConst.lightBgColor,
         body:  Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -119,7 +123,9 @@ class _HomePageState extends State<HomePage> {
                 child: NavBar()),
           ],
         ),
-      ))
+      )
+
+      )
       ;
   }
 }

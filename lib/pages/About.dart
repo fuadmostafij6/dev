@@ -58,7 +58,7 @@ downloadFile(url) {
           ),
           Container(
             color: ColorConst.lightWidgetColor,
-            height: size.height*0.2,
+            height: size.height*0.25,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,7 +80,18 @@ downloadFile(url) {
                                 },
                             ),
                             const TextSpan(
-                                text: "01/2022 - Present"
+                                text: "01/2022 - Present\n"
+                            ),
+
+                            TextSpan(
+                              text: "Trainer at QUEUE SOLUTION BD\n",
+                              style:  TextStyle(color: ColorConst.secondaryColor),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () { launch('https://queuesolutionsbd.com/');
+                                },
+                            ),
+                            const TextSpan(
+                                text: "11/2022 - Present"
                             ),
 
 
@@ -125,7 +136,9 @@ downloadFile(url) {
                 setState(()=>state=ButtonState.init);
                 print(state.name);
 
-              }, child: FittedBox (
+              }, child:
+
+              FittedBox (
                 child:
                 
                 Text("Download CV",
